@@ -7,20 +7,20 @@ function FFT()
     GRAY = rgb2gray(RGB);
     
     % Fourier Transform
-    F = fft2(GRAY); 
+    GRAYF = fft2(GRAY); 
     
     % Magnitude
-    S = abs(F);     
+    GRAYMag = abs(GRAYF);     
    
     % Centered Spectrum
-    Fsh = fftshift(F); 
+    GRAYFCenter = fftshift(GRAYF); 
     
     % log Transform
-    S2 = log(1+abs(Fsh));
+    GRAYFCLog = log(1+abs(GRAYFCenter));
      
     % Reconstruct
-    F = ifftshift(Fsh);
-    f = ifft2(F);
+    GRAYF = ifftshift(GRAYFCenter);
+    IGRAYF = ifft2(GRAYF);
     
     figure;
     subplot(2,3,1);
@@ -32,18 +32,18 @@ function FFT()
     title('Gray');
     
     subplot(2,3,3);
-    imshow(S,[]);
+    imshow(GRAYMag,[]);
     title('Magnitude - FT');
     
     subplot(2,3,4);
-    imshow(abs(Fsh),[]);
+    imshow(abs(GRAYFCenter),[]);
     title('Centered Spectrum');
     
     subplot(2,3,5);
-    imshow(S2,[]);
+    imshow(GRAYFCLog,[]);
     title('Log Transform');
     
     subplot(2,3,6);
-    imshow(f,[]);
+    imshow(IGRAYF,[]);
     title('Image Reconstruction');
 end
