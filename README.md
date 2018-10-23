@@ -1,6 +1,7 @@
 # Image-Processing
 Matlab Codes for Image Manipulation
 
+
 Color Image to Gray - Converts an Image to Grayscale from Color Image
 
 Discrete Cosine Transform - Applies DCT on an Gray Image and Inverse it to reproduce Image
