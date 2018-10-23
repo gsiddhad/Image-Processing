@@ -14,7 +14,7 @@ function DCT()
     imshow(GRAY);
     title('Original');
     subplot(2,2,2);
-    imshow(log(abs(GRAYDCT)),[]);
+    imshow(log(1+abs(GRAYDCT)),[]); % Log for Better Visual
     title('DCT of Image');
 
     % Set Values less than 5 to 0 in DCT Matrix
@@ -22,9 +22,9 @@ function DCT()
     IGRAYDCT = idct2(GRAYDCT)/255;
 
     subplot(2,2,3);
-    imshow(log(abs(GRAYDCT)),[]);
+    imshow(log(1+abs(GRAYDCT)),[]); % Log for Better Visual
     title('Modified DCT of Image');
     subplot(2,2,4);
-    imshow(log(abs(IGRAYDCT)),[]);%,colormap(jet(64));
-    title('Inversed DCT of Image');
+    imshow(IGRAYDCT,[]);%,colormap(jet(64));
+    title('Image Reconstruction By Inverse of Modified DCT');
 end

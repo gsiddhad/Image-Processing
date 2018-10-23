@@ -10,10 +10,10 @@ function FFT()
     GRAYF = fft2(GRAY); 
     
     % Magnitude
-    GRAYMag = abs(GRAYF);     
+    GRAYMag = abs(GRAYF);
    
     % Centered Spectrum
-    GRAYFCenter = fftshift(GRAYF); 
+    GRAYFCenter = fftshift(GRAYF);
     
     % log Transform
     GRAYFCLog = log(1+abs(GRAYFCenter));
@@ -32,11 +32,11 @@ function FFT()
     title('Gray');
     
     subplot(2,3,3);
-    imshow(GRAYMag,[]);
+    imshow(log(GRAYMag),[]);    % Not Visible, Therefore Used Log
     title('Magnitude - FT');
     
     subplot(2,3,4);
-    imshow(abs(GRAYFCenter),[]);
+    imshow(log(abs(GRAYFCenter)),[]);   % Not Visible, Therefore Used Log
     title('Centered Spectrum');
     
     subplot(2,3,5);

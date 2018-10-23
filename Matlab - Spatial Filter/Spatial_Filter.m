@@ -46,7 +46,7 @@ function Spatial_Filter()
 end
 
 % Function to Covolution Matrix using Filter
-function IMG = imgFilter(ORIG, FILTER)
+function [IMG] = imgFilter(ORIG, FILTER)
     IMG = ORIG;
     [p,q] = size(ORIG);
     for i=2:p-1
@@ -59,7 +59,7 @@ function IMG = imgFilter(ORIG, FILTER)
 end
 
 % Function to Pad Image with Zeros
-function IMG = imgPad(ORIG, PAD)
+function [IMG] = imgPad(ORIG, PAD)
     [p,q] = size(ORIG);
     IMG = zeros(p+2, q+2);
     for i=1:p
